@@ -1,0 +1,115 @@
+﻿@model AssetBackedSecurity.Models.AssetBackedSecurity
+
+<h2>Create Asset-Backed Security</h2>
+
+@using (Html.BeginForm("Create", "AssetBackedSecurity", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(model => model.ABSName)
+        @Html.TextBoxFor(model => model.ABSName, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.UnderlyingAssets)
+        @foreach (var asset in Model.UnderlyingAssets)
+        {
+            <div class="underlying-asset">
+                @Html.LabelFor(model => asset.AssetId)
+                @Html.TextBoxFor(model =>  asset.AssetId, new { @class = "form-control" })
+
+                @Html.LabelFor(model => asset.AssetName)
+                @Html.TextBoxFor(model => asset.AssetName, new { @class = "form-control" })
+
+               
+        </div>
+        }
+       
+    </div>
+
+ @*   <div class="form-group">
+        @Html.LabelFor(model => model.CashFlows)
+        
+            <div class="cash-flow">
+                @Html.LabelFor(model => cashFlow.CashFlowId)
+                @Html.TextBoxFor(model => cashFlow.CashFlowId, new { @class = "form-control" })
+
+                @Html.LabelFor(model => cashFlow.FlowDate)
+                @Html.TextBoxFor(model => cashFlow.FlowDate, new { @class = "form-control" })
+
+                @Html.LabelFor(model => cashFlow.FlowAmount)
+                @Html.TextBoxFor(model => cashFlow.FlowAmount, new { @class = "form-control" })
+
+                @Html.LabelFor(model => cashFlow.FlowType)
+                @Html.TextBoxFor(model => cashFlow.FlowType, new { @class = "form-control" })
+            </div>
+       
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.PaymentSchedules)
+        @foreach (var schedule in Model.PaymentSchedules)
+        {
+            <div class="payment-schedule">
+                @Html.LabelFor(model => schedule.ScheduleId)
+                @Html.TextBoxFor(model => schedule.ScheduleId, new { @class = "form-control" })
+
+                @Html.LabelFor(model => schedule.PaymentDate)
+                @Html.TextBoxFor(model => schedule.PaymentDate, new { @class = "form-control" })
+
+                @Html.LabelFor(model => schedule.PaymentAmount)
+                @Html.TextBoxFor(model => schedule.PaymentAmount, new { @class = "form-control" })
+
+                @Html.LabelFor(model => schedule.IsPaid)
+                @Html.CheckBoxFor(model => schedule.IsPaid, new { @class = "form-control" })
+            </div>
+        }
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Tranches)
+        @foreach (var tranche in Model.Tranches)
+        {
+            <div class="tranche">
+                @Html.LabelFor(model => tranche.TrancheId)
+                @Html.TextBoxFor(model => tranche.TrancheId, new { @class = "form-control" })
+
+                @Html.LabelFor(model => tranche.TrancheName)
+                @Html.TextBoxFor(model => tranche.TrancheName, new { @class = "form-control" })
+
+                @Html.LabelFor(model => tranche.PrincipalBalance)
+                @Html.TextBoxFor(model => tranche.PrincipalBalance, new { @class = "form-control" })
+
+                @Html.LabelFor(model => tranche.InterestRate)
+                @Html.TextBoxFor(model => tranche.InterestRate, new { @class = "form-control" })
+
+                @Html.LabelFor(model => tranche.MaturityDate)
+                @Html.TextBoxFor(model => tranche.MaturityDate, new { @class = "form-control" })
+            </div>
+        }
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.IssuanceDetails)
+        @Html.TextBoxFor(model => model.IssuanceDetails.Issuer, new { @class = "form-control" })
+        @Html.TextBoxFor(model => model.IssuanceDetails.IssuanceDate, new { @class = "form-control" })
+        @Html.TextBoxFor(model => model.IssuanceDetails.TotalValue, new { @class = "form-control" })
+        @Html.TextBoxFor(model => model.IssuanceDetails.OfferingType, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.ServicingDetails)
+        @Html.TextBoxFor(model => model.ServicingDetails.Servicer, new { @class = "form-control" })
+        @Html.TextBoxFor(model => model.ServicingDetails.StartDate, new { @class = "form-control" })
+        @Html.TextBoxFor(model => model.ServicingDetails.EndDate, new { @class = "form-control" })
+        @Html.TextBoxFor(model => model.ServicingDetails.FeePercentage, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.PerformanceMetrics)
+        @Html.TextBoxFor(model => model.PerformanceMetrics.TotalPayments, new { @class = "form-control" })
+        @Html.TextBoxFor(model => model.PerformanceMetrics.PrincipalOutstanding, new { @class = "form-control" })
+        @Html.TextBoxFor(model => model.PerformanceMetrics.InterestReceived, new { @class = "form-control" })
+    </div>*@
+
+    <input type="submit" value="Create" class="btn btn-primary" />
+}

@@ -1,0 +1,36 @@
+﻿@model List<AssetBackedSecurity.Models.AssetBackedSecurity>
+
+
+@{
+    ViewData["Title"] = "ABS Records";
+}
+
+<h1>ABS Records</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ABS ID</th>
+            <th>ABS Name</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var abs in Model)
+        {
+            <tr>
+                <td>@abs.ABSId</td>
+                <td>@abs.ABSName</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@abs.ABSId">Details</a> |
+                    <a asp-action="Edit" asp-route-id="@abs.ABSId">Edit</a> |
+                    <a asp-action="Delete" asp-route-id="@abs.ABSId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
